@@ -1,4 +1,8 @@
 # Chess Game — C++ / SFML
+# Members
+M.Imran (25F-0800)
+M.Bilal (25F-0502)
+Rana Saad (25F-0707)
 
 A fully playable, professional chess application built with **C++17** and **SFML 2.5+**.
 
