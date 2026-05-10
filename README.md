@@ -68,73 +68,6 @@ ChessGame/
 
 ---
 
-### Option A — vcpkg (Recommended, Windows/Linux/macOS)
-
-```bash
-# 1. Install vcpkg
-git clone https://github.com/microsoft/vcpkg
-./vcpkg/bootstrap-vcpkg.bat   # Windows
-# ./vcpkg/bootstrap-vcpkg.sh  # Linux/macOS
-
-# 2. Install SFML
-./vcpkg/vcpkg install sfml
-
-# 3. Build
-cmake -B build -S ChessGame -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
-cmake --build build --config Release
-```
-
----
-
-### Option B — Manual SFML path (Windows)
-
-```bash
-# Download SFML 2.6.x from https://www.sfml-dev.org/download.php
-# Extract to e.g. C:\SFML-2.6.1
-
-cmake -B build -S ChessGame -DSFML_DIR="C:/SFML-2.6.1/lib/cmake/SFML"
-cmake --build build --config Release
-```
-
----
-
-### Option C — Visual Studio (Windows)
-
-1. Open Visual Studio → **Open a local folder** → select `ChessGame/`
-2. VS detects `CMakeLists.txt` automatically
-3. Set `SFML_DIR` in `CMakeSettings.json` or via **Project → CMake Settings**
-4. Build → Run
-
----
-
-### Option D — Code::Blocks / Dev-C++ (Manual)
-
-1. Create a new project, add all `.cpp` files from `src/` and `main.cpp`
-2. Add `include/` to include paths
-3. Link: `-lsfml-graphics -lsfml-window -lsfml-system`
-4. Add SFML `include/` and `lib/` paths in compiler/linker settings
-
----
-
-### Option E — Linux (apt)
-
-```bash
-sudo apt install libsfml-dev cmake build-essential
-cmake -B build -S ChessGame
-cmake --build build
-./build/ChessGame
-```
-
----
-
-## Running
-
-```bash
-# From the build directory (assets/ must be alongside the executable)
-./ChessGame          # Linux/macOS
-ChessGame.exe        # Windows
-```
-
 The CMake build script automatically copies `assets/` next to the executable.
 
 ---
@@ -148,17 +81,6 @@ The CMake build script automatically copies `assets/` next to the executable.
 | Deselect            | Left-click same piece again  |
 | Restart game        | Click **New Game** or press `R` |
 | Exit                | Click **Exit** or press `Esc` |
-
----
-
-## Asset Generation
-
-If piece images are missing, regenerate them:
-
-```bash
-cd assets
-python generate_pieces.py   # requires: pip install Pillow
-```
 
 ---
 
